@@ -2,21 +2,26 @@ import axios from "axios";
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const Login =  () => {
      
     const [email,setEmail] = useState("bala@gmail.com");
     const [password,setPassword] =useState("Jai@123");
+    const [errormessage , setErrormessage] = useState("");
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleSubmit = async () =>{
         try{
         const res = await axios.post("http://localhost:3000/login" , {email,password},{withCredentials:true});
         dispatch(addUser(res.data));
+        navigate("/");
     
     }
         catch(err){
             console.log("Error" + err);
+            setErrormessage("Invalid Credentials")
             
         }
         
@@ -45,6 +50,7 @@ const Login =  () => {
  
    
 </label>
+<h1 className="text-red-600"> {errormessage}</h1>
 <div className=" flex justify-center mt-6"><button className="btn btn-active btn-neutral text-white  " 
    onClick={handleSubmit} >Submit</button></div>
 </div></div>
