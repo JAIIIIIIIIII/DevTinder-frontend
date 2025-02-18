@@ -17,7 +17,7 @@ const Body = () => {
     //if(userData) {return ;}
     try{
       const user = await axios.get("http://localhost:3000/profile/view",{withCredentials : true});
-      console.log(user.data.data);
+     // console.log(user.data.data);
       
     dispatch((addUser(user.data.data)));
   }
