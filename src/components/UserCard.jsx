@@ -11,7 +11,7 @@ const UserCard = ({user}) => {
     const dispatch = useDispatch();
     const handleClick = async (status,userId) =>{
         const data = await axios.post("http://localhost:3000/connection/send/" + status + "/" + userId.toString(),{},{withCredentials:true});
-        console.log(data);
+       // console.log(data);
         dispatch(removeFeed(userId));
         
     }

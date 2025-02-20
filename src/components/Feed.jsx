@@ -28,7 +28,7 @@ const Feed = () => {
     getFeed();
   },[])
   const feed = useSelector(state => state.feed.feed);
-  console.log(feed);
+  //console.log(feed);
   
   if(feed.length === 0 ) {
     return <div className=" flex justify-center mt-4"> No new user found </div>
