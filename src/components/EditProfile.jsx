@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
 
 const EditProfile = () => {
   
@@ -33,7 +34,7 @@ const EditProfile = () => {
       }, [user]);
 
       const handleClick = async () =>{
-        const res = await axios.patch("http://localhost:3000/profile/edit",{name,gender,profile,about,skills},{withCredentials:true});
+        const res = await axios.patch( BASE_URL + "/profile/edit",{name,gender,profile,about,skills},{withCredentials:true});
         console.log(res.data);
         dispatch(addUser(res.data.data));
         setMessage(true);

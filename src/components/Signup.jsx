@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate ,Link } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
 
 
 const Signup = () => {
@@ -11,7 +12,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const handleSubmit = async () =>{
         try{
-        const res = await axios.post("http://localhost:3000/signup" , {name,email,password},{withCredentials:true});
+        const res = await axios.post( BASE_URL + "/signup" , {name,email,password},{withCredentials:true});
         console.log(res);
         
         navigate("/login");

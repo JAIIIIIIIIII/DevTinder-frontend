@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addRequests } from '../utils/requests';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
 
 const Requests = () => {
 const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const requests = useSelector((store) => store.requests)
     const handleClick = async (status , reqId) =>{
         //console.log(reqId);
         
-        const data = await axios.post("http://localhost:3000/connection/review/" + status + "/" +reqId.toString(),{},{withCredentials:true});
+        const data = await axios.post( BASE_URL + "/connection/review/" + status + "/" +reqId.toString(),{},{withCredentials:true});
         //console.log(data);
         navigate("/connections");   
 
@@ -20,7 +21,7 @@ const requests = useSelector((store) => store.requests)
     }
 
     const getConnectionRequests = async () =>{
-        const res = await axios.get("http://localhost:3000/user/requests" , {withCredentials : true});
+        const res = await axios.get( BASE_URL + "/user/requests" , {withCredentials : true});
         //console.log(res.data.data);
         dispatch(addRequests(res.data.data));
         

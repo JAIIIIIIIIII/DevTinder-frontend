@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 
 const Login =  () => {
@@ -14,7 +15,7 @@ const Login =  () => {
     const navigate = useNavigate();
     const handleSubmit = async () =>{
         try{
-        const res = await axios.post("http://localhost:3000/login" , {email,password},{withCredentials:true});
+        const res = await axios.post( BASE_URL + "/login" , {email,password},{withCredentials:true});
         dispatch(addUser(res.data));
         navigate("/");
     
