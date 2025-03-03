@@ -10,6 +10,7 @@ import EditProfile from "./components/EditProfile"
 import Connections from "./components/Connections"
 import Requests from "./components/Requests"
 import Signup from "./components/Signup"
+import Chat from "./components/Chat"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/connections" element={<Connections/>} />
       <Route path="/connectionrequests" element={<Requests/>} />
       <Route path="/register" element={<Signup/>} />
+      <Route path="/chat/:id" element={<Chat/>} />
       
     </Route>
   </Routes>

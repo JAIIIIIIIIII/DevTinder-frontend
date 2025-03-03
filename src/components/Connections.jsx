@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addConnections } from '../utils/connections';
 import { BASE_URL } from '../utils/constants';
+import { Link } from 'react-router-dom';
 
 const Connections = () => {
     const dispatch = useDispatch();
@@ -49,8 +50,18 @@ const Connections = () => {
             <img src={val.profile} alt="Profile" />
           </div>
           </div>
-          <h1 className='pl-3 py-3 text-xl font-bold'>{val.name}</h1>
-        </div></div>
+          <div className='flex justify-between items-center w-full'>
+              
+                <h1 className='pl-3 py-3 text-xl font-bold'>{val.name}</h1>
+           
+              <Link to={'/chat/' + val._id}> <button className='bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors'>
+                Chat
+              </button>   </Link>
+
+            </div>
+        </div>
+        
+        </div>
       );
     })
   )
