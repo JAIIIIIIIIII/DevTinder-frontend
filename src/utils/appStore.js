@@ -4,12 +4,14 @@ import feedReducer from "./feedSlice";
 import connectionReducer from './connections'
 import requestReducer from './requests'
 
+
 const appStore = configureStore({
     reducer :{
         user:userReducer,
         feed:feedReducer,
         connections:connectionReducer,
-        requests:requestReducer
+        requests:requestReducer,
+        
     }
 })
 

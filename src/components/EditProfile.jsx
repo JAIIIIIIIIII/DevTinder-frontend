@@ -35,7 +35,7 @@ const EditProfile = () => {
 
       const handleClick = async () =>{
         const res = await axios.patch( BASE_URL + "/profile/edit",{name,gender,profile,about,skills},{withCredentials:true});
-        console.log(res.data);
+        //console.log(res.data);
         dispatch(addUser(res.data.data));
         setMessage(true);
         setTimeout(()=> setMessage(false) , 2000)
